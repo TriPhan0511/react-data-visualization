@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { faFileLines } from '@fortawesome/free-solid-svg-icons'
+import { faFileLines, faTable } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const MuiTableFrame = ({ title, width, children }) => {
+const MuiTableFrame = ({ title, width, children, chartTypeIcon }) => {
 	return (
 		<div style={{ width: width }}>
 			<div
@@ -25,7 +25,11 @@ const MuiTableFrame = ({ title, width, children }) => {
 						marginBottom: '1.5rem',
 					}}
 				>
-					<FontAwesomeIcon icon={faFileLines} />
+					{chartTypeIcon === 'table' ? (
+						<FontAwesomeIcon icon={faTable} />
+					) : (
+						<FontAwesomeIcon icon={faFileLines} />
+					)}
 					<span style={{ marginLeft: '10px' }}>{title.toUpperCase()}</span>
 				</h3>
 				<div style={{ padding: '0 1.5rem' }}>{children}</div>
@@ -38,11 +42,13 @@ MuiTableFrame.propTypes = {
 	children: PropTypes.node.isRequired,
 	title: PropTypes.string.isRequired,
 	width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	chartTypeIcon: PropTypes.string.isRequired,
 }
 
 MuiTableFrame.defaultProps = {
 	title: 'Báo Cáo',
 	width: '50vw',
+	chartTypeIcon: 'report',
 }
 
 export default MuiTableFrame

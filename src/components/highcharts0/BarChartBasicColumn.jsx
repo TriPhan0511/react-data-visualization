@@ -19,7 +19,7 @@ import HighchartsFrame from './HighchartsFrame'
 				By default value is 400px.
 */
 
-const BarChartBasicColumn = ({ width, height, title, chartTypeIcon }) => {
+const BarChartBasicColumn = ({ width, height }) => {
 	const options = {
 		chart: {
 			height: height,
@@ -89,7 +89,10 @@ const BarChartBasicColumn = ({ width, height, title, chartTypeIcon }) => {
 	}
 
 	return (
-		<HighchartsFrame width={width} title={title} chartTypeIcon={chartTypeIcon}>
+		<HighchartsFrame
+			width={width}
+			title='Đơn vị có lượt tham gia học nhiều nhất'
+		>
 			<HighchartsReact highcharts={HighCharts} options={options} />
 		</HighchartsFrame>
 	)
@@ -98,15 +101,11 @@ const BarChartBasicColumn = ({ width, height, title, chartTypeIcon }) => {
 BarChartBasicColumn.propTypes = {
 	width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-	title: PropTypes.string.isRequired,
-	chartTypeIcon: PropTypes.string.isRequired,
 }
 
 BarChartBasicColumn.defaultProps = {
 	width: '50%',
 	height: 400,
-	title: 'Báo cáo',
-	chartTypeIcon: 'column',
 }
 
 export default BarChartBasicColumn

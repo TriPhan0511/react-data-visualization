@@ -9,7 +9,7 @@ import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 import MuiTableFrame from './MuiTableFrame'
 
-const MuiTable = ({ title, width }) => {
+const MuiTable = ({ title, width, chartTypeIcon }) => {
 	const CourseInfo = ({ courseName, imageUrl }) => {
 		return (
 			<div
@@ -103,7 +103,7 @@ const MuiTable = ({ title, width }) => {
 	// ];
 
 	return (
-		<MuiTableFrame title={title} width={width}>
+		<MuiTableFrame title={title} width={width} chartTypeIcon={chartTypeIcon}>
 			<TableContainer component={Paper} sx={{ boxShadow: 'none' }}>
 				<Table sx={{ minWidth: 650 }} size='small' aria-label='simple table'>
 					<TableHead>
@@ -183,11 +183,13 @@ const MuiTable = ({ title, width }) => {
 MuiTable.propTypes = {
 	title: PropTypes.string.isRequired,
 	width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	chartTypeIcon: PropTypes.string.isRequired,
 }
 
 MuiTable.defaultProps = {
 	title: 'Báo Cáo',
 	width: '50vw',
+	chartTypeIcon: 'table',
 }
 
 export default MuiTable

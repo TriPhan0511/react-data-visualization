@@ -19,7 +19,7 @@ import HighchartsFrame from './HighchartsFrame'
 				By default value is 400px.
 */
 
-const DualAxesLineAndColumn = ({ width, height, title, chartTypeIcon }) => {
+const DualAxesLineAndColumn = ({ width, height }) => {
 	const options = {
 		chart: {
 			zoomType: 'xy',
@@ -161,7 +161,7 @@ const DualAxesLineAndColumn = ({ width, height, title, chartTypeIcon }) => {
 	}
 
 	return (
-		<HighchartsFrame title={title} width={width} chartTypeIcon={chartTypeIcon}>
+		<HighchartsFrame title='Biểu đồ lưu lượng người dùng' width={width}>
 			<HighchartsReact highcharts={HighCharts} options={options} />
 		</HighchartsFrame>
 	)
@@ -170,15 +170,11 @@ const DualAxesLineAndColumn = ({ width, height, title, chartTypeIcon }) => {
 DualAxesLineAndColumn.propTypes = {
 	width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-	title: PropTypes.string.isRequired,
-	chartTypeIcon: PropTypes.string.isRequired,
 }
 
 DualAxesLineAndColumn.defaultProps = {
 	width: '50%',
 	height: 400,
-	title: 'Báo cáo',
-	chartTypeIcon: 'column',
 }
 
 export default DualAxesLineAndColumn

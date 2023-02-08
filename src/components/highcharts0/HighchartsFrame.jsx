@@ -1,13 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {
-	faChartColumn,
-	faChartPie,
-	faFileLines,
-} from '@fortawesome/free-solid-svg-icons'
+import { faChartColumn } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const HighchartsFrame = ({ title, width, children, chartTypeIcon }) => {
+const HighchartsFrame = ({ title, width, children }) => {
 	return (
 		<div style={{ width: width }}>
 			<div
@@ -29,13 +25,7 @@ const HighchartsFrame = ({ title, width, children, chartTypeIcon }) => {
 						marginBottom: '1.5rem',
 					}}
 				>
-					{chartTypeIcon === 'column' ? (
-						<FontAwesomeIcon icon={faChartColumn} />
-					) : chartTypeIcon === 'pie' ? (
-						<FontAwesomeIcon icon={faChartPie} />
-					) : (
-						<FontAwesomeIcon icon={faFileLines} />
-					)}
+					<FontAwesomeIcon icon={faChartColumn} />
 					<span style={{ marginLeft: '10px' }}>{title.toUpperCase()}</span>
 				</h3>
 				<div style={{ padding: '0 1.5rem' }}>{children}</div>
@@ -48,13 +38,11 @@ HighchartsFrame.propTypes = {
 	children: PropTypes.node.isRequired,
 	title: PropTypes.string.isRequired,
 	width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-	chartTypeIcon: PropTypes.string.isRequired,
 }
 
 HighchartsFrame.defaultProps = {
 	title: 'Báo Cáo',
 	width: '50vw',
-	chartTypeIcon: 'report',
 }
 
 export default HighchartsFrame

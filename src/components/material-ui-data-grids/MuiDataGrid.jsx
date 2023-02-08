@@ -240,10 +240,9 @@ const rows = [
 	},
 ]
 
-// export default function MuiDataGrid({ title, width }) {
-const MuiDataGrid = ({ title, width }) => {
+const MuiDataGrid = ({ title, width, chartTypeIcon }) => {
 	return (
-		<MuiDataGridFrame width={width} title={title}>
+		<MuiDataGridFrame width={width} title={title} chartTypeIcon={chartTypeIcon}>
 			<div style={{ height: 400, width: '100%' }}>
 				<DataGrid
 					rows={rows}
@@ -257,79 +256,17 @@ const MuiDataGrid = ({ title, width }) => {
 	)
 }
 
-MuiDataGridFrame.propTypes = {
+MuiDataGrid.propTypes = {
 	children: PropTypes.node.isRequired,
 	title: PropTypes.string.isRequired,
 	width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	chartTypeIcon: PropTypes.string.isRequired,
 }
 
-MuiDataGridFrame.defaultProps = {
+MuiDataGrid.defaultProps = {
 	title: 'Báo Cáo',
 	width: '100vw',
+	chartTypeIcon: 'table',
 }
 
 export default MuiDataGrid
-
-// // ----------------------------------------------------
-// export default function MuiDataGrid() {
-// 	return (
-// 		<div>
-// 			<h3
-// 				style={{
-// 					backgroundColor: '#00A65A',
-// 					color: '#fff',
-// 					margin: 0,
-// 					padding: '15px 10px',
-// 					letterSpacing: '0.01071em',
-// 					fontWeight: 400,
-// 					fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
-// 					fontSize: '1.4rem',
-// 				}}
-// 			>
-// 				<FontAwesomeIcon icon={faFileLines} />
-// 				<span style={{ marginLeft: '5px' }}>BÁO CÁO KHÓA HỌC</span>
-// 			</h3>
-// 			<div style={{ height: 400, width: '100%' }}>
-// 				<DataGrid
-// 					rows={rows}
-// 					columns={columns}
-// 					pageSize={5}
-// 					rowsPerPageOptions={[5]}
-// 					sx={{ border: 'none' }}
-// 				/>
-// 			</div>
-// 		</div>
-// 	)
-// }
-
-// // ----------------------------------------------------
-// export default function MuiDataGrid() {
-// 	return (
-// 		<div>
-// 			<h3
-// 				style={{
-// 					backgroundColor: '#00A65A',
-// 					color: '#fff',
-// 					margin: 0,
-// 					padding: '15px 10px',
-// 					letterSpacing: '0.01071em',
-// 					fontWeight: 400,
-// 					fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
-// 					fontSize: '1.4rem',
-// 				}}
-// 			>
-// 				<FontAwesomeIcon icon={faFileLines} />
-// 				<span style={{ marginLeft: '5px' }}>BÁO CÁO KHÓA HỌC</span>
-// 			</h3>
-// 			<div style={{ height: 400, width: '100%' }}>
-// 				<DataGrid
-// 					rows={rows}
-// 					columns={columns}
-// 					pageSize={5}
-// 					rowsPerPageOptions={[5]}
-// 					sx={{ border: 'none' }}
-// 				/>
-// 			</div>
-// 		</div>
-// 	)
-// }
